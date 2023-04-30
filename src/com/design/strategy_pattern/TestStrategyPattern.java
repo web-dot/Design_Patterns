@@ -55,6 +55,16 @@ public class TestStrategyPattern {
 		
 		System.out.println("CREDIT TRANSACTIONS--------");
 		
+		CreditDeposit creditDeposit = new CreditDeposit();
+		CreditWithdraw creditWithdraw = new CreditWithdraw();
+		CreditLoan creditLoan = new CreditLoan();
+		
+		
+		CreditAccount creditAccount = new CreditAccount(creditDeposit, creditWithdraw, creditLoan);
+		
+		creditAccount.setBalance(creditAccount.deposit.deposit(creditAccount.getBalance(), 50000));
+		creditAccount.setBalance(creditAccount.withdraw.withdraw(creditAccount.getBalance(), 20000));
+		creditAccount.setBalance(creditAccount.loan.getLoan(creditAccount.getBalance(), 60000));
 		
 		/**
 		 * CONSOLE OUTPUT:
@@ -73,17 +83,6 @@ public class TestStrategyPattern {
 		 * 
 		 * */
 		
-		
-		CreditDeposit creditDeposit = new CreditDeposit();
-		CreditWithdraw creditWithdraw = new CreditWithdraw();
-		CreditLoan creditLoan = new CreditLoan();
-		
-		
-		CreditAccount creditAccount = new CreditAccount(creditDeposit, creditWithdraw, creditLoan);
-		
-		creditAccount.setBalance(creditAccount.deposit.deposit(creditAccount.getBalance(), 50000));
-		creditAccount.setBalance(creditAccount.withdraw.withdraw(creditAccount.getBalance(), 20000));
-		creditAccount.setBalance(creditAccount.loan.getLoan(creditAccount.getBalance(), 60000));
 		
 	}
 }
