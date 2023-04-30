@@ -55,6 +55,25 @@ public class TestStrategyPattern {
 		
 		System.out.println("CREDIT TRANSACTIONS--------");
 		
+		
+		/**
+		 * CONSOLE OUTPUT:
+		 * 
+		 * 	SAVINGS TRANSACTIONS--------
+		 * 
+			DEPOSIT: SUCCESS | DEPOSITED - INR: 100000.0 | BALANCE - INR: 100000.0
+			WITHDRAWL: SUCCESS | WITHDRAWN - INR: 5000.0 | BALANCE - INR: 95000.0
+			LOAN: SUCCESS | LOAN AMT - INR 30000.0 | BALANCE - INR: 65000.0
+			
+			CREDIT TRANSACTIONS--------
+			
+			DEPOSIT: SUCCESS | DEPOSITED - INR: 50000.0 | BALANCE - INR: 50000.0
+			WITHDRAWL: SUCCESS | WITHDRAWN - INR: 20000.0 | BALANCE - INR: 30000.0
+			LOAN: SUCCESS | LOAN AMT - INR 60000.0 | BALANCE - INR: -30000.0 | WARNING: NEGETIVE BALANCE
+		 * 
+		 * */
+		
+		
 		CreditDeposit creditDeposit = new CreditDeposit();
 		CreditWithdraw creditWithdraw = new CreditWithdraw();
 		CreditLoan creditLoan = new CreditLoan();
