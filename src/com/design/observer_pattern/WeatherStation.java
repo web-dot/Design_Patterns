@@ -14,6 +14,11 @@ public class WeatherStation implements Observable {
 	}
 	
 	@Override
+	public void remove(Observer observer) {
+		observers.remove(observer);
+	}
+	
+	@Override
 	public void notifyObservers() {
 		for(Observer o : observers) {
 			o.update();
@@ -27,6 +32,16 @@ public class WeatherStation implements Observable {
 	public void setTemperature(int temperature) {
 		this.temperature = temperature;
 	}
+
+	public List<Observer> getObservers() {
+		return observers;
+	}
+
+	public void setObservers(List<Observer> observers) {
+		this.observers = observers;
+	}
+	
+	
 	
 	
 }
