@@ -6,6 +6,7 @@ public class Caramel extends AddonDecorator {
 		this.beverage = b;
 	}
 	
+	
 	@Override
 	public int cost() {
 		return this.beverage.cost() + 2;
