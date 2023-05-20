@@ -7,6 +7,7 @@ public class TestDecorator {
 		Beverage b = new Caramel(new Espresso());
 		int cost = b.cost();
 		System.out.println("cost of caramel decorated espresso is : " + cost);
+		Thread.currentThread().getName();
 	}
 	
 }
