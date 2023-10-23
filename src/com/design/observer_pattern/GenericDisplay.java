@@ -9,7 +9,7 @@ public class GenericDisplay implements Observer {
 	
 	@Override
 	public void update() {
-		this.temperature = station .getTemperature();
+		this.temperature = station.getTemperature();
 	}
 
 	public int getTemperature() {
