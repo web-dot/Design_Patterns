@@ -3,31 +3,26 @@ package com.design.observer_pattern_recap;
 public class TestObserver {
 	
 	public static void main(String[] args) {
-		String currentMessage;
-		String updatedMessage;
 		
-		MessagePublisher publisher = new MessagePublisher();
+		// Test the communication between publishers and subscribers
 		
-		MessageSubscriberOne subscriber1 = new MessageSubscriberOne(publisher);
-		
-		publisher.add(subscriber1);
+		MessageSubscriberOne s1 = new MessageSubscriberOne();
+		MessageSubscriberTwo s2 = new MessageSubscriberTwo();
+		MessageSubscriberThree s3 = new MessageSubscriberThree();
 		
 		
-		//CASE 1 - 
-		currentMessage = "old message";
-		updatedMessage = "new message";
+		MessagePublisher p = new MessagePublisher();
 		
-		publisher.setMessage(updatedMessage);
-		if(!currentMessage.equals(updatedMessage)) {
-			publisher.notifyObservers();
-		}
+		p.attach(s1);
+		p.attach(s2);
 		
-		for(Observer o : publisher.getObservers()) {
-			if(o instanceof MessageSubscriberOne) {
-				MessageSubscriberOne sub1 = (MessageSubscriberOne) o;
-				System.out.println(sub1.getMessage());
-			}
-		}
+		p.notifyUpdate(new Message("First message")); // s1 and s2 will receive update
+		
+		p.detach(s1);
+		p.attach(s3);
+		
+		p.notifyUpdate(new Message("Second message")); // s2 and s3 will receive update
+		
 		
 	}
 }
