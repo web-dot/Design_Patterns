@@ -10,6 +10,8 @@ public class PizzaShop {
 	 * the existing codebase. This is where the Factory Method Pattern comes in.
 	 * */
 	public static void main(String[] args) {
-		
+		PizzaFactory factory = new MargheritaPizzaFactory();
+		Pizza pizza = factory.preparePizza();
+		pizza.prepare();
 	}
 }
